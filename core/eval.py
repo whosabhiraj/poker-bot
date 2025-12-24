@@ -1,9 +1,13 @@
-from deck import Card
-from hand import Hand
+from .deck import Card
+from .hand import Hand
 
-def ev(hand):
+def evaluate(hand) -> tuple:
     cards = hand.cards
     ranks = []
+
+    if len(hand.cards) != 3:
+        raise ValueError(f"Invalid hand size: {hand.cards}")
+
     for card in cards:
         if card.rank not in ranks: ranks.append(card.rank) 
     unique_ranks = len(ranks)
@@ -53,3 +57,5 @@ def ev(hand):
             return(4, x+2)
         
         else: return(1, ranks[0], ranks[1], ranks[2])
+
+    raise RuntimeError("Unreachable: invalid hand state")

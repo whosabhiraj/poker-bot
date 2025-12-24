@@ -29,7 +29,8 @@ class Card:
     def __lt__(self, other):
         return self.rank < other.rank
     
-    def full_deck(self):
+    @staticmethod
+    def full_deck():
         return [Card(r, s) for s in suits for r in ranks]
     
     def remaining_deck(self, hole, community):

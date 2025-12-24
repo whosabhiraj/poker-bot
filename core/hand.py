@@ -1,4 +1,4 @@
-from deck import Card
+from .deck import Card
 
 class Hand:
     def __init__(self, hole1, hole2, community):
