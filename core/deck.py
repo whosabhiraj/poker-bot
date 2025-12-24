@@ -16,7 +16,8 @@ class Card:
         self.id = (suit_id * 13) + (self.rank - 2)
 
     def __repr__(self):
-        return(f"{self.rank_str}{self.suit}")
+        SUIT = {'c': "♣", 'd': "♦", 'h': "♥", 's': "♠"}
+        return(f"{self.rank_str}{SUIT[self.suit]}")
 
     def __eq__(self, other):
         if not isinstance(other, Card):
